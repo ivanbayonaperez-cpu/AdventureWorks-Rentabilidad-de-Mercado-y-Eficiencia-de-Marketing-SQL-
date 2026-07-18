@@ -36,7 +36,7 @@ GROUP BY p.pais, p.clave_territorio
 ORDER BY p.clave_territorio, ingresos, costos;
 ```
 
-**4. QA y validación** ([`04_qa_validacion.sql`]([./sql/04_qa_validacion.sql](https://github.com/ivanbayonaperez-cpu/AdventureWorks-Rentabilidad-de-Mercado-y-Eficiencia-de-Marketing-SQL-/blob/main/sql/%20%20%20sql/04_qa_validacion.sql))) — comprobación de totales agregados contra recálculo directo desde tablas base, detección de productos con margen negativo, y conteo de precios/cantidades no válidas (`< 0`).
+**4. QA y validación** ([`04_qa_validacion.sql`](sql/   sql/04_qa_validacion.sql))) — comprobación de totales agregados contra recálculo directo desde tablas base, detección de productos con margen negativo, y conteo de precios/cantidades no válidas (`< 0`).
 
 ## 📊 Resultados por país (2017)
 
