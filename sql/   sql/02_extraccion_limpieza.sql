@@ -1,5 +1,10 @@
--- Parte 2: Extraer y limpiar datos
--- --------------------------------------------------------
+-- =====================================================
+-- Paso 2: Extracción y limpieza de datos
+-- Objetivo: construir la tabla base "ventas_clean" combinando
+-- ventas, productos y territorios, con manejo de nulos.
+-- =====================================================
+
+CREATE VIEW ventas_clean AS
 SELECT
     v.numero_pedido,
     v.clave_producto,
@@ -11,9 +16,9 @@ SELECT
     t.pais,
     t.continente,
     v.clave_territorio,
--- Calcula  ingreso_total y costo_total
-(COALESCE(v.cantidad_pedido, 0) * COALESCE(p.precio_producto, 0)) AS ingreso_total,
-(COALESCE(v.cantidad_pedido, 0) * COALESCE(p.costo_producto, 0)) AS costo_total
+    -- Ingreso y costo total por línea de pedido
+    (COALESCE(v.cantidad_pedido, 0) * COALESCE(p.precio_producto, 0)) AS ingreso_total,
+    (COALESCE(v.cantidad_pedido, 0) * COALESCE(p.costo_producto, 0)) AS costo_total
 FROM ventas_2017 AS v
 JOIN productos AS p
   ON v.clave_producto = p.clave_producto
