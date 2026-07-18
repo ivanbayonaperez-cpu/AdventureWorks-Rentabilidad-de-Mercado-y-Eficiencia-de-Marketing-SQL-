@@ -14,11 +14,11 @@ Se integraron 5 tablas relacionales: `ventas_2017` (transacciones), `productos` 
 
 Consultas disponibles en [`/sql`](./sql) — cada archivo corresponde a una etapa del análisis.
 
-**1. Exploración del esquema** ([`01_exploracion.sql`]([01_exploracion.sql](https://github.com/ivanbayonaperez-cpu/AdventureWorks-Rentabilidad-de-Mercado-y-Eficiencia-de-Marketing-SQL-/blob/main/sql/%20%20%20sql/01_exploracion.sql))) — identificación de claves de unión entre las 5 tablas.
+**1. Exploración del esquema** — identificación de claves de unión entre las 5 tablas.
 
-**2. Extracción y limpieza** ([`02_extraccion_limpieza.sql`]([./sql/02_extraccion_limpieza.sql](https://github.com/ivanbayonaperez-cpu/AdventureWorks-Rentabilidad-de-Mercado-y-Eficiencia-de-Marketing-SQL-/blob/main/sql/%20%20%20sql/02_extraccion_limpieza.sql))) — construcción de la tabla base combinando ventas, productos y territorios, con manejo de nulos vía `COALESCE` y cálculo de ingreso/costo total por línea de pedido.
+**2. Extracción y limpieza**  — construcción de la tabla base combinando ventas, productos y territorios, con manejo de nulos vía `COALESCE` y cálculo de ingreso/costo total por línea de pedido.
 
-**3. KPIs financieros** ([`03_kpis_financieros.sql`]([./sql/03_kpis_financieros.sql](https://github.com/ivanbayonaperez-cpu/AdventureWorks-Rentabilidad-de-Mercado-y-Eficiencia-de-Marketing-SQL-/blob/main/sql/%20%20%20sql/03_kpis_financieros.sql))) — el query central del proyecto:
+**3. KPIs financieros**  el query central del proyecto:
 
 ```sql
 SELECT
@@ -36,7 +36,7 @@ GROUP BY p.pais, p.clave_territorio
 ORDER BY p.clave_territorio, ingresos, costos;
 ```
 
-**4. QA y validación** ([`04_qa_validacion.sql`](sql/   sql/04_qa_validacion.sql))) — comprobación de totales agregados contra recálculo directo desde tablas base, detección de productos con margen negativo, y conteo de precios/cantidades no válidas (`< 0`).
+**4. QA y validación**  — comprobación de totales agregados contra recálculo directo desde tablas base, detección de productos con margen negativo, y conteo de precios/cantidades no válidas (`< 0`).
 
 ## 📊 Resultados por país (2017)
 
